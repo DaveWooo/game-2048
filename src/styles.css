@@ -1,0 +1,123 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+    background-color: #bbada0;
+    border-radius: 6px;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.cell {
+    background-color: rgba(238, 228, 218, 0.35);
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #776e65;
+    transition: all 0.15s ease-in-out;
+}
+
+.cell-2 { background-color: #eee4da; }
+.cell-4 { background-color: #ede0c8; }
+.cell-8 { background-color: #f2b179; color: #f9f6f2; }
+.cell-16 { background-color: #f59563; color: #f9f6f2; }
+.cell-32 { background-color: #f67c5f; color: #f9f6f2; }
+.cell-64 { background-color: #f65e3b; color: #f9f6f2; }
+.cell-128 { background-color: #edcf72; color: #f9f6f2; }
+.cell-256 { background-color: #edcc61; color: #f9f6f2; }
+.cell-512 { background-color: #edc850; color: #f9f6f2; }
+.cell-1024 { background-color: #edc53f; color: #f9f6f2; }
+.cell-2048 { background-color: #edc22e; color: #f9f6f2; }
+
+.score {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.message {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0;
+    color: #776e65;
+}
+
+/* 添加响应式设计 */
+@media (max-width: 500px) {
+    .grid-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .cell {
+        font-size: 18px;
+    }
+}
+
+/* 添加控制按钮样式 */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.controls button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8f7a66;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #9f8b77;
+}
+
+.controls button.muted {
+    background-color: #bbada0;
+}
+
+/* 添加动画效果 */
+@keyframes appear {
+    0% { opacity: 0; transform: scale(0); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.cell-new {
+    animation: appear 0.2s ease-in-out;
+}
+
+@keyframes merge {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.cell-merged {
+    animation: merge 0.2s ease-in-out;
+}
+
+.controls select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8f7a66;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.controls select option {
+    background-color: #bbada0;
+    color: white;
+} 

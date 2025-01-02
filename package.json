@@ -1,0 +1,19 @@
+{
+  "name": "number-stack-game",
+  "private": true,
+  "version": "1.0.0",
+  "description": "2048-like number stacking game",
+  "author": "Your Name",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "sh deploy.sh"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "@types/node": "^20.0.0"
+  }
+} 
