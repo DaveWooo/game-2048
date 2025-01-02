@@ -56,9 +56,96 @@
 
 ### 本地开发
 
+```bash
 1. 克隆仓库
+git clone https://github.com/DaveWooo/game-2048.git
+cd game-2048
+
 2. 安装依赖
+npm install
+
 3. 运行开发环境
+npm run dev
+```
+
+### 开发命令
+
+```bash
+# 启动开发服务器（默认端口3000）
+npm run dev
+
+# 构建生产版本
+npm run build
+
+# 预览生产构建
+npm run preview
+```
+
+### 环境要求
+
+- Node.js >= 14.0.0
+- npm >= 6.0.0
+
+### 开发工具推荐
+
+- VS Code
+- Chrome DevTools
+
+### 项目结构
+```
+game-2048/
+├── src/
+│   ├── Game.ts         # 游戏核心逻辑
+│   ├── GameUI.ts       # 用户界面组件
+│   ├── AudioManager.ts # 音效管理
+│   ├── Storage.ts      # 本地存储
+│   └── styles.css      # 样式文件
+├── public/             # 静态资源
+├── index.html          # 入口HTML
+├── package.json        # 项目配置
+├── tsconfig.json       # TypeScript配置
+├── vite.config.ts      # Vite配置
+└── README.md          # 项目文档
+```
+
+### 部署指南
+
+#### 本地构建
+```bash
+# 构建生产版本
+npm run build
+
+# 构建产物在 dist 目录
+```
+
+#### Vercel部署
+1. Fork 本仓库到你的 GitHub 账号
+2. 在 Vercel 中导入项目
+3. 选择默认设置，点击部署
+4. 等待部署完成
+
+#### 自定义服务器部署
+```bash
+# 构建项目
+npm run build
+
+# 将 dist 目录下的文件复制到服务器
+# 配置服务器（Nginx示例）：
+```
+
+```nginx
+server {
+    listen 80;
+    server_name your-domain.com;
+
+    root /path/to/dist;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+```
 
 ## 贡献指南
 
