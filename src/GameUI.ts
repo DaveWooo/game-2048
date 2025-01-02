@@ -4,12 +4,16 @@ import { AudioManager } from './AudioManager';
 export class GameUI {
     private game: Game;
     private container: HTMLElement;
-    private gridContainer: HTMLElement;
-    private scoreElement: HTMLElement;
-    private messageContainer: HTMLElement;
+    private gridContainer!: HTMLElement;
+    private scoreElement!: HTMLElement;
+    private messageContainer!: HTMLElement;
 
     constructor(containerId: string) {
-        this.container = document.getElementById(containerId)!;
+        const container = document.getElementById(containerId);
+        if (!container) {
+            throw new Error(`Container with id "${containerId}" not found`);
+        }
+        this.container = container;
         this.game = new Game();
         this.setupUI();
         this.setupEventListeners();

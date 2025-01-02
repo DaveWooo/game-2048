@@ -23,25 +23,23 @@ interface GameState {
 }
 
 export class Game {
-    private grid: number[][];
-    private score: number;
-    private size: number;
-    private gameOver: boolean;
-    private won: boolean;
+    private grid: number[][] = [];
+    private score: number = 0;
+    private size: number = 4;
+    private gameOver: boolean = false;
+    private won: boolean = false;
     private difficulty: GameDifficulty;
     private targetScore: number;
 
     constructor(difficulty: GameDifficulty = GameDifficulty.EASY) {
+        this.difficulty = difficulty;
+        this.size = difficulty;
+        this.targetScore = this.getTargetScore();
+        
         const savedState = GameStorage.loadGame();
         if (savedState) {
             this.loadState(savedState);
         } else {
-            this.difficulty = difficulty;
-            this.size = difficulty;
-            this.targetScore = this.getTargetScore();
-            this.score = 0;
-            this.gameOver = false;
-            this.won = false;
             this.grid = this.createGrid();
             this.addInitialTiles();
         }
@@ -107,7 +105,6 @@ export class Game {
 
     public move(direction: 'up' | 'down' | 'left' | 'right'): boolean {
         let moved = false;
-        let prevGrid = JSON.stringify(this.grid);
 
         switch (direction) {
             case 'up':
